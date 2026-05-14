@@ -1,18 +1,16 @@
-[build]
-  command = "vite build"
-  publish = "dist/client"
+import { defineConfig } from 'vite'
+import { tanstackStart } from '@tanstack/react-start/plugin/vite'
+import netlify from '@netlify/vite-plugin-tanstack-start'
+import path from 'path'
 
-[build.environment]
-  NODE_VERSION = "20"
-
-[[redirects]]
-  from = "/assets/*"
-  to = "/assets/:splat"
-  status = 200
-  force = false
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/server"
-  status = 200
-  force = false
+export default defineConfig({
+  plugins: [
+    tanstackStart(),
+    netlify(),
+  ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+})

@@ -1,0 +1,1 @@
+import{j as o}from"./index-Dxcrbb5r.js";import{S as e}from"./ServicePlaceholder-DL0kqpmB.js";import"./arrow-right-CrQM0SN1.js";const i=()=>o.jsx(e,{titleKey:"sub_bookkeeping"});export{i as component};
