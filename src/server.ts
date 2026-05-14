@@ -9,12 +9,14 @@ function brandedErrorResponse(): Response {
   });
 }
 
-export const handler = async (req: Request): Promise<Response> => {
-  try {
-    const { default: serverEntry } = await import("@tanstack/react-start/server-entry");
-    return await serverEntry.fetch(req);
-  } catch (error) {
-    console.error(consumeLastCapturedError() ?? error);
-    return brandedErrorResponse();
-  }
+export default {
+  async fetch(request: Request): Promise<Response> {
+    try {
+      const { default: serverEntry } = await import("@tanstack/react-start/server-entry");
+      return await serverEntry.fetch(request);
+    } catch (error) {
+      console.error(consumeLastCapturedError() ?? error);
+      return brandedErrorResponse();
+    }
+  },
 };
