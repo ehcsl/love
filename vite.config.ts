@@ -1,9 +1,10 @@
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from 'vite'
+import { tanstackStart } from '@tanstack/react-start/plugin/vite'
+import netlify from '@netlify/vite-plugin-tanstack-start'
 
 export default defineConfig({
-  tanstackStart: {
-    // This is the critical change
-    deploymentTarget: 'netlify-functions', 
-    server: { entry: "server" },
-  },
-});
+  plugins: [
+    tanstackStart(),
+    netlify(),
+  ],
+})

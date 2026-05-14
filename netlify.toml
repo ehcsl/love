@@ -1,12 +1,6 @@
 [build]
-  command = "npm run build"
-  publish = ".output/public"
+  command = "vite build"
+  publish = "dist/client"
 
-[functions]
-  # Netlify now handles Node compatibility via environment variables
-  directory = ".output/server"
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/server"
-  status = 200
+[build.environment]
+  NODE_VERSION = "20"
