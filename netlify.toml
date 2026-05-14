@@ -3,8 +3,8 @@
   publish = ".output/public"
 
 [functions]
+  # Netlify now handles Node compatibility via environment variables
   directory = ".output/server"
-  node_compatibility = "v20"
 
 [[redirects]]
   from = "/*"
